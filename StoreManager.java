@@ -6,7 +6,12 @@ public class StoreManager extends User {
 
     @Override
     public void displayUserDetails() {
-        super.displayUserDetails();
-        System.out.println("Access Level: Store Manager");
+
+        System.out.println("====================================");
+        System.out.println("Welcome, Store Manager");
+        System.out.println();
+        System.out.println("Username     : " + getUsername());
+        System.out.println("Access Level : Administrator");
+        System.out.println("====================================");
     }
 }

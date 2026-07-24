@@ -1,4 +1,3 @@
-
 public interface InventoryOperations {
 
     // Add a new item to the inventory

@@ -1,4 +1,4 @@
-public class User {
+public abstract class User {
 
     private String userId;
     private String username;
@@ -29,8 +29,7 @@ public class User {
         return role;
     }
 
-    //Setters
-
+    // Setters
     public void setPassword(String password) {
         this.password = password;
     }
@@ -39,23 +38,14 @@ public class User {
         this.role = role;
     }
 
-    //Login Method
+    // Login
     public boolean login(String inputUsername, String inputPassword) {
-        if (this.username.equals(inputUsername) && this.password.equals(inputPassword)) {
-            System.out.println("Login successful! WELCOME, " + username + ", "("+ role +")");
-                return true;
-        } else {
-            System.out.println("Login Failed! Invalid username or password.");
-            return false;
+        if (username.equals(inputUsername) && password.equals(inputPassword)) {
+            return true;
         }
+        return false;
     }
 
-    //Display user details
-    public void displayUserDetails() {
-        System.out.println("====== User Details ======");
-        System.out.println("User ID: " + userId);
-        System.out.println("Username: " + username);
-        System.out.println("Role: " + role);
-        System.out.println("===========================");
-    }
+    // Abstract method
+    public abstract void displayUserDetails();
 }

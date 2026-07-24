@@ -12,10 +12,10 @@ public class InventoryManager implements InventoryOperations {
     @Override
     public void addItem(Item newItem) {
         stockList.add(newItem);
-        System.out.println("Added: " + newItem.getItemName() + " (Stock: " + newItem.getStock() + ")");
+        System.out.println("Added: " + newItem.getItemName() + " (Stock: " + newItem.getQuantity() + ")");
 
         // Log this action to the log file (Person 4's FileHandler)
-        FileHandler.logTransaction("ADD", newItem.getItemName(), newItem.getStock());
+        FileHandler.logTransaction("ADD", newItem.getItemName(), newItem.getQuantity());
     }
 
     @Override
@@ -23,7 +23,7 @@ public class InventoryManager implements InventoryOperations {
         // Look for the item with this id
         Item match = null;
         for (Item current : stockList) {
-            if (current.getId().equals(id)) {
+            if (current.getItemId().equals(id)) {
                 match = current;
                 break;
             }
@@ -35,15 +35,15 @@ public class InventoryManager implements InventoryOperations {
         }
 
         // If there isn't enough stock, we display an error
-        if (match.getStock() < amount) {
+        if (match.getQuantity() < amount) {
             throw new InventoryException("Not enough stock for " + match.getItemName()
-                    + ". Available: " + match.getStock() + ", Requested: " + amount);
+                    + ". Available: " + match.getQuantity() + ", Requested: " + amount);
         }
 
         // Otherwise, reduce the stock and log the sale
-        match.setStock(match.getStock() - amount);
+        match.setQuantity(match.getQuantity() - amount);
         System.out.println("Sold " + amount + " of " + match.getItemName()
-                + ". Remaining stock: " + match.getStock());
+                + ". Remaining stock: " + match.getQuantity());
 
         FileHandler.logTransaction("SELL", match.getItemName(), amount);
     }
@@ -56,7 +56,7 @@ public class InventoryManager implements InventoryOperations {
             System.out.println("No items in inventory.");
         } else {
             for (Item current : stockList) {
-                current.showDetails();
+                current.displayDetails();
                 System.out.println("--------------------------------");
             }
         }
@@ -70,8 +70,8 @@ public class InventoryManager implements InventoryOperations {
 
         boolean lowStockFound = false;
         for (Item current : stockList) {
-            if (current.getStock() < limit) {
-                System.out.println(current.getItemName() + " - Stock: " + current.getStock());
+            if (current.getQuantity() < limit) {
+                System.out.println(current.getItemName() + " - Stock: " + current.getQuantity());
                 lowStockFound = true;
             }
         }
