@@ -266,3 +266,6 @@ Developed as an academic project to demonstrate Java Object-Oriented Programming
 This project is intended for **educational purposes**.
 
 You are welcome to use, modify, and distribute this project for learning and academic use.
+
+# Demonstration of our application:
+- ![alt text](Demo.gif)
