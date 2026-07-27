@@ -3,6 +3,12 @@
 A **Java-based console application** that demonstrates core **Object-Oriented Programming (OOP)** principles through a complete inventory management solution. The system supports **Store Manager** and **Staff** roles, manages grocery and electronics inventory, processes sales, provides low-stock alerts, and records all transactions in a log file.
 
 ---
+# 🎥 Application Demonstration
+
+Watch the demo of our Smart Inventory Management System here:
+🔗 https://youtu.be/OGG1c2QuMTQ
+
+---
 
 ## 🚀 Features
 
@@ -266,6 +272,3 @@ Developed as an academic project to demonstrate Java Object-Oriented Programming
 This project is intended for **educational purposes**.
 
 You are welcome to use, modify, and distribute this project for learning and academic use.
-
-# Demonstration of our application:
-- https://youtu.be/OGG1c2QuMTQ
